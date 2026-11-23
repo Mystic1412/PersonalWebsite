@@ -1,0 +1,547 @@
+/* Color Palette & Global Variables */
+:root {
+  --bg: #0f172a;           /* Deep dark slate */
+  --card-bg: #1e293b;      /* Section/card backgrounds */
+  --card-hover: #24344d;   /* Subtle card hover tint */
+  --accent: #38bdf8;        /* Sky blue highlight */
+  --accent-muted: rgba(56, 189, 248, 0.12);
+  --text: #f8fafc;          /* High contrast text */
+  --text-muted: #94a3b8;    /* Muted secondary text */
+  --border: #334155;       /* Card and track borders */
+  --timeline-line: #334155;
+  --radius: 8px;
+  --transition: all 0.25s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 2.5rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* 1. Hero / Header Section */
+.hero-section {
+  padding: 6.5rem 2rem 4rem;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #0f172a;
+  border: 1px solid var(--accent);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Shared Section Container */
+.section-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+/* 2. About Me Section */
+.about-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.about-card p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* 3. Education Section */
+.education-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.education-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem 2rem;
+  transition: var(--transition);
+}
+
+.education-card:hover {
+  border-color: var(--accent);
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.education-school {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.education-degree {
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-top: 0.2rem;
+}
+
+.education-body {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edu-block {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.edu-label {
+  font-weight: 600;
+  color: var(--text);
+  margin-right: 0.4rem;
+}
+
+/* 4. Experience Timeline */
+.timeline-wrapper {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.timeline-track {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 7px;
+  width: 2px;
+  background-color: var(--timeline-line);
+}
+
+.timeline-year-group {
+  margin-bottom: 2.75rem;
+  position: relative;
+}
+
+.year-marker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  left: -2.5rem;
+}
+
+.year-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  border: 3px solid var(--accent);
+  z-index: 2;
+}
+
+.year-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.timeline-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.25rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.timeline-card:hover,
+.timeline-card.expanded {
+  border-color: var(--accent);
+  background-color: var(--card-hover);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.role-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.org-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.date-badge {
+  font-size: 0.82rem;
+  color: var(--accent);
+  background: var(--accent-muted);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.card-hover-preview {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 0.4rem;
+  font-style: italic;
+  transition: opacity 0.2s;
+}
+
+.timeline-card:hover .card-hover-preview,
+.timeline-card.expanded .card-hover-preview {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+}
+
+.card-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+}
+
+.timeline-card:hover .card-details,
+.timeline-card.expanded .card-details {
+  max-height: 350px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+
+.card-details ul {
+  padding-left: 1.25rem;
+}
+
+.card-details li {
+  margin-bottom: 0.45rem;
+}
+
+/* 5. Projects Section */
+.filter-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  background-color: var(--accent);
+  color: #0f172a;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.65rem;
+}
+
+.project-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.project-category {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-family: monospace;
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.project-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(51, 65, 85, 0.6);
+  padding-top: 0.85rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  background-color: #0f172a;
+  border: 1px solid var(--border);
+  color: #94a3b8;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.project-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  background-color: #0b1120;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .card-header,
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date-badge {
+    align-self: flex-start;
+  }
+
+  .timeline-wrapper {
+    padding-left: 2rem;
+  }
+
+  .year-marker {
+    left: -2rem;
+  }
+}
+
+/* Update max-height to fit both sections */
+.timeline-card:hover .card-details,
+.timeline-card.expanded .card-details {
+  max-height: 1500px; /* expanded to allow both subsections */
+  opacity: 1;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+
+/* Subgroup label styling matching your Fira Code monospace look */
+.timeline-subgroup:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.subgroup-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
