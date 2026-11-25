@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let posX = 15 + Math.random() * 70;
       let posY = 20 + Math.random() * 60;
       const speedScale = 1000/window.innerWidth;
-      let velX = (Math.random() > 0.5 ? 1 : -1) * (0.09 + Math.random() * 0.04) *speedScale;
-      let velY = (Math.random() > 0.5 ? 1 : -1) * (0.09 + Math.random() * 0.04)*speedScale;
+      let velX = (Math.random() > 0.5 ? 1 : -1) * (0.1 + Math.random() * 0.05) *speedScale;
+      let velY = (Math.random() > 0.5 ? 1 : -1) * (0.1 + Math.random() * 0.05)*speedScale;
 
       target.style.left = `${posX}%`;
       target.style.top = `${posY}%`;
