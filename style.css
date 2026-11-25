@@ -1,13 +1,13 @@
 /* Color Palette & Global Variables */
 :root {
-  --bg: #0f172a;           /* Deep dark slate */
+  --bg: #060913;           /* Deep dark slate */
   --card-bg: #1e293b;      /* Section/card backgrounds */
   --card-hover: #24344d;   /* Subtle card hover tint */
-  --accent: #38bdf8;        /* Sky blue highlight */
+  --accent: #70c4fc;        /* Sky blue highlight */
   --accent-muted: rgba(56, 189, 248, 0.12);
   --text: #f8fafc;          /* High contrast text */
   --text-muted: #94a3b8;    /* Muted secondary text */
-  --border: #334155;       /* Card and track borders */
+  --border: #b9e5ff;       /* Card and track borders */
   --timeline-line: #334155;
   --radius: 8px;
   --transition: all 0.25s ease-in-out;
@@ -25,10 +25,29 @@ body {
   color: var(--text);
   line-height: 1.6;
   scroll-behavior: smooth;
+  position: relative;
 }
 
 button, input, select, textarea {
   font-family: inherit;
+}
+
+#galaxyCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Stays behind everything */
+  pointer-events: none;
+}
+
+.about-card,
+.education-card,
+.timeline-card,
+.project-card {
+  background-color: rgba(30, 41, 59, 0.82);
+  backdrop-filter: blur(6px);
 }
 
 /* Navigation Bar */
