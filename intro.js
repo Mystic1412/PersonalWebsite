@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Spawn & Animate Targets
   function spawnTargets(count) {
-    const labels = ['CS', 'ECON', 'CODE', 'GAME', 'EDIT', 'VIDEOS', 'TECH'];
+    const labels = ['CS', 'ECON', 'CODE', 'GAME', 'EDIT', 'VIDEO', 'TECH'];
 
     for (let i = 0; i < count; i++) {
       const randomIndex = Math.floor(Math.random() * labels.length);
@@ -95,8 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let posX = 15 + Math.random() * 70;
       let posY = 20 + Math.random() * 60;
-      let velX = (Math.random() > 0.5 ? 1 : -1) * (0.12 + Math.random() * 0.12);
-      let velY = (Math.random() > 0.5 ? 1 : -1) * (0.12 + Math.random() * 0.12);
+      const speedScale = 1000/window.innerWidth;
+      let velX = (Math.random() > 0.5 ? 1 : -1) * (0.12 + Math.random() * 0.1) *speedScale;
+      let velY = (Math.random() > 0.5 ? 1 : -1) * (0.12 + Math.random() * 0.1)*speedScale;
 
       target.style.left = `${posX}%`;
       target.style.top = `${posY}%`;
